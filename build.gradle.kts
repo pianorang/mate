@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.6.8"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	id("com.vaadin") version "0.14.6.0"
+	//id("com.vaadin") version "0.14.6.0"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 	kotlin("plugin.jpa") version "1.6.21"
@@ -23,9 +23,11 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("com.vaadin:vaadin-spring-boot-starter")
+	//implementation("com.vaadin:vaadin-spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
@@ -37,7 +39,7 @@ dependencies {
 
 dependencyManagement {
 	imports {
-		mavenBom("com.vaadin:vaadin-bom:${property("vaadinVersion")}")
+		//mavenBom("com.vaadin:vaadin-bom:${property("vaadinVersion")}")
 	}
 }
 
