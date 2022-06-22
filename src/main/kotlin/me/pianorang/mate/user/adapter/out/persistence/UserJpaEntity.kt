@@ -22,8 +22,8 @@ internal class UserJpaEntity(
     val isDenied: Boolean
 ) {
     companion object{
-        fun entityToJpaEntity(user: User){
-            return UserJpaEntity()
+        fun entityToJpaEntity(user: User):Unit{
+
         }
     }
 
