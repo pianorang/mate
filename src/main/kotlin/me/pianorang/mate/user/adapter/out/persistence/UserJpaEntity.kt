@@ -9,7 +9,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "TN_USER")
-internal class UserJpaEntity(
+class UserJpaEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id:Long,
@@ -21,10 +21,10 @@ internal class UserJpaEntity(
     val isAdmin: Boolean,
     val isDenied: Boolean
 ) {
-    companion object{
-        fun entityToJpaEntity(user: User):Unit{
 
-        }
+
+    companion object{
+
     }
 
 }
