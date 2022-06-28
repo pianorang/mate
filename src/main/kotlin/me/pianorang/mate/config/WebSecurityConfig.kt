@@ -27,7 +27,7 @@ class WebSecurityConfig {
             build()
         }
     }
-    @Bean
+    //@Bean
     public fun userDetailsService(): UserDetailsService {
         val users: User.UserBuilder = User.withDefaultPasswordEncoder()
         val manager = InMemoryUserDetailsManager()
