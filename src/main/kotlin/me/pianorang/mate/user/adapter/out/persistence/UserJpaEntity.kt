@@ -22,9 +22,4 @@ class UserJpaEntity(
     val isDenied: Boolean
 ) {
 
-
-    companion object{
-
-    }
-
 }
