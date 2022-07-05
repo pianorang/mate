@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 interface UserRepository: JpaRepository<UserJpaEntity, Long> {
-    @Query("select a from UserJpaEntity a" +
+    @Query("select a from UserJpaEntity a " +
             "where a.userId = :userId ")
     fun findByUserId(userId:String): UserJpaEntity
 }

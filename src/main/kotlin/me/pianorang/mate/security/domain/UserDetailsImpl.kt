@@ -20,7 +20,7 @@ class UserDetailsImpl(val user:User) : UserDetails {
 
     override fun isAccountNonExpired(): Boolean = true
 
-    override fun isAccountNonLocked(): Boolean = user.isDenied
+    override fun isAccountNonLocked(): Boolean = !user.isDenied
 
     override fun isCredentialsNonExpired(): Boolean = true
 

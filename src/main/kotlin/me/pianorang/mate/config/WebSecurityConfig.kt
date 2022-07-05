@@ -19,7 +19,13 @@ class WebSecurityConfig {
     @Bean
     fun filterChain(http:HttpSecurity): SecurityFilterChain{
         return http.run {
-            authorizeHttpRequests(){authz-> authz.antMatchers("/sys/**").authenticated()}
+            authorizeHttpRequests(){authz->
+                authz.antMatchers("/sys/**").authenticated()
+                    .anyRequest().permitAll()
+                    .and().csrf().ignoringAntMatchers("/h2-console/**").disable().httpBasic()
+                    .and().headers().frameOptions().sameOrigin()
+                    //.antMatchers("/h2/**").permitAll()
+            }
             formLogin().run {
                 loginPage("/auth/login")
                 loginProcessingUrl("/auth/login")
@@ -27,6 +33,8 @@ class WebSecurityConfig {
             build()
         }
     }
+
+
     //@Bean
     public fun userDetailsService(): UserDetailsService {
         val users: User.UserBuilder = User.withDefaultPasswordEncoder()
@@ -36,9 +44,7 @@ class WebSecurityConfig {
         return manager
     }
 
-
-
-    //@Bean
+    @Bean
     fun passwordEncoder():PasswordEncoder = BCryptPasswordEncoder()
 
 }
