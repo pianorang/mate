@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class UserCrudPageController() {
-    @GetMapping("/admin/user")
+    @GetMapping("/sys/user")
     fun userList() = "admin/user/user_list"
 }

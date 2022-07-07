@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/default}">
+      layout:decorate="~{layout/admin/default}">
 <head>
     <!-- Page level plugins -->
-    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <link href="/theme/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="/theme/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/theme/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
 </head>
@@ -30,7 +30,7 @@
                         <th>아이디</th>
                         <th>이름</th>
                         <th>이메일</th>
-                        <th>최근로그인</th>
+<!--                        <th>최근로그인</th>-->
                         <th>승인</th>
                         <th>수정</th>
                     </tr>
@@ -47,7 +47,7 @@
             "info": true,
             "stateSave": true,
             "ajax":{
-                url: "./api/portfolio",
+                url: "./user/getDataTableList",
                 "data": function ( d ) {
                   var info = $('#dataTable').DataTable().page.info();
                   return {
@@ -62,9 +62,16 @@
                 {
                     "targets": [0, 1],
                     "render": function ( data, type, row ) {
-                        return '<a href="/user/'+ row.rowId + '">' + data + '</a>';
+                        return '<a href="./user/'+ row.id + '">' + data + '</a>';
                     },
-                }
+                },
+                {
+                    "targets": [5],
+                    "render": function ( data, type, row ) {
+                        console.log(data, type, row )
+                        return '<a href="./user/'+ row.id + '">수정</a>';
+                    },
+                },
             ],
             "columns" : [
                 {
@@ -73,10 +80,11 @@
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 },
-                {"data": "thumbnailPath"},
-                {"data": "title"},
-                {"data": "createdOn"},
-                {"data": "createdBy"}
+                {"data": "userId"},
+                {"data": "userName"},
+                {"data": "userEmail"},
+                {"data": "isDenied"},
+
             ]
 
         });

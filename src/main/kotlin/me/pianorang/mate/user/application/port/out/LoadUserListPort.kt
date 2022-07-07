@@ -5,5 +5,5 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 
 interface LoadUserListPort {
-    fun loadUserList(pageable: Pageable): Page<User>
+    fun loadUserList(pageable: Pageable): Page<UserDataTableDto>
 }

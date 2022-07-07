@@ -22,8 +22,10 @@ class WebSecurityConfig {
             authorizeHttpRequests(){authz->
                 authz.antMatchers("/sys/**").authenticated()
                     .anyRequest().permitAll()
-                    .and().csrf().ignoringAntMatchers("/h2-console/**").disable().httpBasic()
+
+                    .and().csrf().ignoringAntMatchers("/h2-console/**")
                     .and().headers().frameOptions().sameOrigin()
+
                     //.antMatchers("/h2/**").permitAll()
             }
             formLogin().run {

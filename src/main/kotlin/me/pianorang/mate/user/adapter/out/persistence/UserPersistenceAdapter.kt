@@ -16,7 +16,7 @@ class UserPersistenceAdapter(val userRepository: UserRepository, val userMapper:
 
     override fun loadByUserId(userId: String): User = userMapper.mapToDomainEntity(userRepository.findByUserId(userId))
 
-    override fun loadUserList(pageable: Pageable): Page<User> = userRepository.findAll(pageable).map { userMapper.mapToDomainEntity(it) }
+    override fun loadUserList(pageable: Pageable)= userRepository.findAll(pageable).map { userMapper.mapToDataTableDto(it) }
 
 
 }
