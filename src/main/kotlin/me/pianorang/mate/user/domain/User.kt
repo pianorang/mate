@@ -1,5 +1,7 @@
 package me.pianorang.mate.user.domain
 
+import me.pianorang.mate.common.DataTableList
+
 class User(
     val id:Long,
     val userId:String,
@@ -9,5 +11,5 @@ class User(
     val userLevel:Int,
     val isAdmin: Boolean,
     val isDenied: Boolean
-) {
+): DataTableList {
 }
