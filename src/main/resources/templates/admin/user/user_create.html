@@ -58,16 +58,14 @@
     	$('#userForm').validate({
     		rules: {
     			userName: "required",
-    			"userId.custCode":{
-    				required: true, minlength:5, maxlength:5, number: true
-    			} ,
     			"userId.userId":{
-    				required: true, minlength:4, maxlength:8
+    				required: true, minlength:4, maxlength:15
     			} ,
     			userPassword: "required",
     			userPasswordConfirm: {
    			    	equalTo: "#userPassword"
-   			    }
+   			    },
+   			    userEmail: {required: true, email: true}
    			}
    		});
 

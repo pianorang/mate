@@ -6,16 +6,25 @@ import org.springframework.ui.Model
 import org.springframework.ui.set
 
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PutMapping
 
 @Controller
-class UserCrudPageController() {
+class UserCrudPageController(
+    val
+) {
     @GetMapping("/sys/user")
     fun userList() = "admin/user/user_list"
 
     @GetMapping("/sys/user/create")
-    fun userCreate(model: Model):String{
-        model["user"] = UserRequestDto();
+    fun userCreatePage(model: Model):String{
         return "admin/user/user_create"
+    }
+
+    @PutMapping
+    fun createUser(user:UserRequestDto){
+
+
+
     }
 
 }
